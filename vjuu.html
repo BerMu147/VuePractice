@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <meta charset="UTF-8">
+    <title>Practice VUE</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="stilsen.css">
+</head>
+<body>
+    <div id="vueapp">
+        <h1>{{greet()}}</h1>
+        <p>Name: {{name}}<p>
+        <p>Job: {{job}}</p>
+        <p>{{name}} ima cijelih {{age}} godina</p>
+
+        <!--Direct actions -->
+        <p>Zelis li dodati godine?</p>
+        <button v-on:click="age++">Add Year</button>
+        <button v-on:click="age--">Subtract Year</button> <br>
+
+        <!--Functions from apps.js -->
+        <p>Ili mozda samo jednu?</p>
+        <button v-on:click.once="addYr(1)">Add Year</button>
+        <button v-on:click.once="subYr(1)">Subtract Year</button> <br>
+
+        <!-- Double Click Actions-->
+        <p>A mozes i vise (Double Klick)</p>
+        <button v-on:dblclick="addYr(5)">Add 5 Years</button>
+        <button v-on:dblclick="subYr(5)">Subtract 5 Years</button> <br>
+
+        <!-- Website redirection-->
+        <p>Sta se ovdje ima za preprodat?</p>
+        <a v-bind:href="website">Redirekcija za OLX korisnika </a> {{name}}
+        <p v-html="webTag"></p>
+        <p>Tvoji podatci (Hit Enter)</p>
+        <label>Ime: </label>
+        <input type="text" v-model="ime"/>
+        <span>{{ime}}</span> <br>
+        <label>Godine: </label>
+        <input type="text" v-model="godine"/>
+        <span>{{godine}}</span> <br>
+        <p>Koordinate pokazivaca misa provjeri u kvadrantu ispod </p>
+        <div id="canvas" v-on:mousemove="updateK">{{x}}, {{y}}</div>
+        <br>
+        <h2><a v-on:click.prevent="Rams" href="https://downloadmoreram.com/">!!! PREUZMI RAM POTPUNO BESPLATNO OVDE !!!</a></h2>
+    </div>
+
+
+    <script src="apps.js"></script>
+</body>
+</html>
